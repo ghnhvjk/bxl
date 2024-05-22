@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百熙楼</title>
+    <link rel="stylesheet" href="pannellum/src/css/pannellum.css"/>
+    <script type="text/javascript" src="pannellum/src/js/libpannellum.js"></script>
+    <script type="text/javascript" src="pannellum/src/js/pannellum.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            position: relative; /* 添加这行以便在绝对定位时基于 body 定位 */
+        }
+
+        #panorama {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<div id="panorama"></div>
+
+<script>
+        var panorama1 = {
+            "title": "前方",
+            "type": "equirectangular",
+            "panorama": "https://s2.loli.net/2024/05/22/lI48TbeyfWog5a2.jpg",
+            "yaw": -2,
+            "pitch": 2,
+            "hfov": 60, 
+            "hotSpots": [{
+                    "pitch": 0,
+                    "yaw": 25,
+                    "type": "scene",
+                    "text": "左侧",
+                    "sceneId": "scene2"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -25,
+                    "type": "scene",
+                    "text": "右侧",
+                    "sceneId": "scene3"
+                },
+            ]
+        };
+
+        var panorama2 = {
+            "title": "左侧",
+            "type": "equirectangular",
+            "panorama": "https://s2.loli.net/2024/05/22/Kyxudr7JU5lFk4h.jpg",
+            "yaw": 0,
+            "pitch": -3,
+            "hfov": 65, 
+            "hotSpots": [{
+                    "pitch": 0,
+                    "yaw": 30,
+                    "type": "scene",
+                    "text": "后方",
+                    "sceneId": "scene4"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -30,
+                    "type": "scene",
+                    "text": "前方",
+                    "sceneId": "scene1"
+                },
+            ]
+        };
+
+        var panorama3 = {
+            "title": "右侧",
+            "type": "equirectangular",
+            "panorama": "https://s2.loli.net/2024/05/22/eixZurfBjD2IU5a.jpg",
+            "yaw": 0,
+            "pitch": 0,
+            "hfov": 65, 
+            "hotSpots": [{
+                    "pitch": 0,
+                    "yaw": -30,
+                    "type": "scene",
+                    "text": "后方",
+                    "sceneId": "scene4"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 30,
+                    "type": "scene",
+                    "text": "前方",
+                    "sceneId": "scene1"
+                },
+            ]
+        };
+
+        var panorama4 = {
+            "title": "后方",
+            "type": "equirectangular",
+            "panorama": "https://s2.loli.net/2024/05/22/HNtUujLKlmXEi17.jpg",
+            "yaw": 0,
+            "pitch": 0,
+            "hfov": 110, 
+            "hotSpots": [{
+                    "pitch": 0,
+                    "yaw": -40,
+                    "type": "scene",
+                    "text": "左侧",
+                    "sceneId": "scene2"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": 40,
+                    "type": "scene",
+                    "text": "右侧",
+                    "sceneId": "scene3"
+                },
+            ]
+        };
+
+    var viewer = pannellum.viewer('panorama', {
+        "scenes": {
+            "scene1": panorama1,
+            "scene2": panorama2,
+            "scene3": panorama3,
+            "scene4": panorama4
+        },
+        "autoLoad": true
+    });
+
+    viewer.loadScene('scene1');
+
+</script>
+
+</body>
+</html>
